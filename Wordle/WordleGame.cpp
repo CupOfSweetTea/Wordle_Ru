@@ -8,9 +8,9 @@
 #include "wordle.h"
 
 int wordleGame(void) {
-	setlocale(LC_ALL, "Russian"); // включает русский язык в консоли
-	system("chcp 1251"); // Исправляет понимание программой русского языка
-	system("@cls||clear"); // Убирает надпись "Текущая кодовая страница: 1251"
+	setlocale(LC_ALL, "Russian"); // enables Russian in the console
+	system("chcp 1251"); // Corrects the program's understanding of the Russian language
+	system("@cls||clear"); // Removes the inscription "Current code page: 1251"
 	srand(time(NULL));
 	const int Y = 7;
 	const int N_line = 4154;
