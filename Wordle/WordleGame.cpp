@@ -78,6 +78,9 @@ int wordleGame(void) {
 
 		case 1: printf("Попытка 2: ");
 			scanf_s("%s", attempt1, N_line);
+			for (i = 0; i < Y; i++) {
+				attempt2[i] = attempt1[i];
+			}
 			attempt2[6] = line[6];
 
 			FILE* fpt;
@@ -116,6 +119,9 @@ int wordleGame(void) {
 		
 		case 2: printf("Попытка 3: ");
 			scanf_s("%s", attempt1, N_line);
+			for (i = 0; i < Y; i++) {
+				attempt2[i] = attempt1[i];
+			}
 			attempt2[6] = line[6];
 
 			FILE* fp;
@@ -154,6 +160,9 @@ int wordleGame(void) {
 		
 		case 3: printf("Попытка 4: ");
 			scanf_s("%s", attempt1, N_line);
+			for (i = 0; i < Y; i++) {
+				attempt2[i] = attempt1[i];
+			}
 			attempt2[6] = line[6];
 
 			FILE* f;
@@ -192,6 +201,9 @@ int wordleGame(void) {
 		
 		case 4: printf("Попытка 5: ");
 			scanf_s("%s", attempt1, N_line);
+			for (i = 0; i < Y; i++) {
+				attempt2[i] = attempt1[i];
+			}
 			attempt2[6] = line[6];
 
 			FILE* fptr1;
@@ -230,6 +242,9 @@ int wordleGame(void) {
 		
 		case 5: printf("Попытка 6: ");
 			scanf_s("%s", attempt1, N_line);
+			for (i = 0; i < Y; i++) {
+				attempt2[i] = attempt1[i];
+			}
 			attempt2[6] = line[6];
 
 			FILE* fptr2;
