@@ -140,8 +140,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="print_on_screen.cpp" />
-    <ClCompile Include="set_color.cpp" />
-    <ClCompile Include="Start.cpp" />
     <ClCompile Include="WordleGame.cpp" />
     <ClCompile Include="Wordle.cpp" />
   </ItemGroup>

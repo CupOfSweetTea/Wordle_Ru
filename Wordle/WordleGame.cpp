@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <locale.h>
 #include <conio.h>
 #include <Windows.h>
 #include <stdlib.h>
@@ -8,14 +7,12 @@
 #include "wordle.h"
 
 int wordleGame(void) {
-	setlocale(LC_ALL, "Russian"); // enables Russian in the console
-	system("chcp 1251"); // Corrects the program's understanding of the Russian language
 	system("@cls||clear"); // Removes the inscription "Current code page: 1251"
 	srand(time(NULL));
 	const int Y = 7;
 	const int N_line = 4154;
 	const char New[Y] = "";
-	char answer[Y] = "", attempt1[Y] = "", check_exist[Y] = "", line[Y] = "";
+	char answer[Y] = "", attempt1[N_line] = "", attempt2[Y] = "", check_exist[Y] = "", line[Y] = "";
 	int i = 0, j = 0, attempt[Y] = { 0,0,0,0,0,0,0 }, o = 0, WExist = 0;
 	FILE* fptr;
 	if ((fopen_s(&fptr, "words.txt", "r")) != NULL) {
@@ -40,8 +37,11 @@ int wordleGame(void) {
 	do
 	switch (o) {
 		case 0: printf("Попытка 1: ");
-			scanf_s("%s", attempt1, Y);
-			attempt1[6] = line[6];
+			scanf_s("%s", attempt1, N_line); // Do not entre more then 4154 symbols. Please!
+			for (i = 0; i < Y; i++) {
+				attempt2[i] = attempt1[i];
+			}
+			attempt2[6] = line[6];
 			FILE* fptr;
 			if ((fopen_s(&fptr, "words.txt", "r")) != NULL) {
 				perror("Error");
@@ -57,7 +57,6 @@ int wordleGame(void) {
 				}
 			}
 			fclose(fptr);
-
 			if (WExist == 1) {
 				print_on_screen(attempt1, answer, attempt, Y);
 				o++;
@@ -78,8 +77,9 @@ int wordleGame(void) {
 			break;
 
 		case 1: printf("Попытка 2: ");
-			scanf_s("%s", attempt1, Y);
-			attempt1[6] = line[6];
+			scanf_s("%s", attempt1, N_line);
+			attempt2[6] = line[6];
+
 			FILE* fpt;
 			if ((fopen_s(&fpt, "words.txt", "r")) != NULL) {
 				perror("Error");
@@ -95,7 +95,6 @@ int wordleGame(void) {
 				}
 			}
 			fclose(fpt);
-
 			if (WExist == 1) {
 				print_on_screen(attempt1, answer, attempt, Y);
 				o++;
@@ -116,8 +115,9 @@ int wordleGame(void) {
 			break;
 		
 		case 2: printf("Попытка 3: ");
-			scanf_s("%s", attempt1, Y);
-			attempt1[6] = line[6];
+			scanf_s("%s", attempt1, N_line);
+			attempt2[6] = line[6];
+
 			FILE* fp;
 			if ((fopen_s(&fp, "words.txt", "r")) != NULL) {
 				perror("Error");
@@ -133,7 +133,6 @@ int wordleGame(void) {
 				}
 			}
 			fclose(fp);
-
 			if (WExist == 1) {
 				print_on_screen(attempt1, answer, attempt, Y);
 				o++;
@@ -154,8 +153,9 @@ int wordleGame(void) {
 			break;
 		
 		case 3: printf("Попытка 4: ");
-			scanf_s("%s", attempt1, Y);
-			attempt1[6] = line[6];
+			scanf_s("%s", attempt1, N_line);
+			attempt2[6] = line[6];
+
 			FILE* f;
 			if ((fopen_s(&f, "words.txt", "r")) != NULL) {
 				perror("Error");
@@ -171,7 +171,6 @@ int wordleGame(void) {
 				}
 			}
 			fclose(f);
-
 			if (WExist == 1) {
 				print_on_screen(attempt1, answer, attempt, Y);
 				o++;
@@ -192,8 +191,9 @@ int wordleGame(void) {
 			break;
 		
 		case 4: printf("Попытка 5: ");
-			scanf_s("%s", attempt1, Y);
-			attempt1[6] = line[6];
+			scanf_s("%s", attempt1, N_line);
+			attempt2[6] = line[6];
+
 			FILE* fptr1;
 			if ((fopen_s(&fptr1, "words.txt", "r")) != NULL) {
 				perror("Error");
@@ -209,7 +209,6 @@ int wordleGame(void) {
 				}
 			}
 			fclose(fptr1);
-
 			if (WExist == 1) {
 				print_on_screen(attempt1, answer, attempt, Y);
 				o++;
@@ -230,8 +229,9 @@ int wordleGame(void) {
 			break;
 		
 		case 5: printf("Попытка 6: ");
-			scanf_s("%s", attempt1, Y);
-			attempt1[6] = line[6];
+			scanf_s("%s", attempt1, N_line);
+			attempt2[6] = line[6];
+
 			FILE* fptr2;
 			if ((fopen_s(&fptr2, "words.txt", "r")) != NULL) {
 				perror("Error");
@@ -247,7 +247,6 @@ int wordleGame(void) {
 				}
 			}
 			fclose(fptr2);
-
 			if (WExist == 1) {
 				print_on_screen(attempt1, answer, attempt, Y);
 				o++;
